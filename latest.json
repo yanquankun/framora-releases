@@ -1,0 +1,19 @@
+{
+  "name": "Framora",
+  "channel": "stable",
+  "version": "0.0.2",
+  "releasedAt": "2026-06-28T04:12:30.000Z",
+  "minimumSupportedVersion": "0.0.1",
+  "releaseUrl": "https://github.com/yanquankun/framora-releases/releases/tag/v0.0.2",
+  "latestUrl": "https://github.com/yanquankun/framora-releases/releases/latest",
+  "notes": {
+    "zh": [
+      "初始化公开发布仓库，用于验证应用内更新提示。",
+      "本版本用于测试标题栏“更新”按钮逻辑，暂不包含 App 内自动下载。"
+    ],
+    "en": [
+      "Initialize the public release repository for validating in-app update prompts.",
+      "This release is for testing the title-bar Update button flow and does not include in-app auto download."
+    ]
+  }
+}

@@ -1,94 +1,203 @@
-# Framora Releases
+# 帧序 Framora
 
 [中文](#中文) | [English](#english)
 
-This repository hosts public release metadata, release notes, and download pages for Framora.
-
-![Framora video creation screen](assets/screenshots/framora-video-create.png)
+![帧序视频创建界面](assets/screenshots/framora-video-create.png)
 
 ## 中文
 
-Framora（帧序）是一个面向视频创作的桌面应用，当前重点覆盖 AI 视频生成、视频编辑、工作流编排、图片编辑与本地素材管理。
+帧序 Framora 是一款桌面端 AI 视频创作工具，面向短视频创作者、AI 影像实验者和内容运营团队。你可以用它完成从提示词构思、AI 视频生成、素材管理、视频剪辑、图片编辑到工作流编排的完整创作流程。
 
-### 当前定位
+## 下载
 
-- AI 视频生成：通过文本提示词与参考图片生成视频，并展示任务状态。
-- 浏览器内编辑：提供时间轴、画布与导出能力，用于基础视频编辑。
-- 创意工作流：支持以节点方式组织灵感、分镜、素材读取与发布联动。
-- 本地桌面体验：基于 Electron 分发，生成结果、素材与设置保存在本机。
+请在 [GitHub Releases](https://github.com/yanquankun/framora-releases/releases/latest) 中选择与你设备匹配的安装包：
 
-### 下载与更新
+| 平台 | 适用设备 | 下载项 |
+| --- | --- | --- |
+| Windows | Windows 10/11 电脑 | Windows x64 安装包 |
+| macOS Apple Silicon | M1 / M2 / M3 / M4 芯片 Mac | macOS Apple Silicon 安装包 |
+| macOS Intel | Intel 芯片 Mac | macOS Intel 安装包 |
 
-最新版本入口：[GitHub Releases](https://github.com/yanquankun/framora-releases/releases/latest)
+如果不确定自己的 Mac 芯片类型，可以点击 macOS 左上角苹果菜单，进入“关于本机”查看芯片信息。
 
-应用内更新检查读取本仓库根目录的 [`latest.json`](latest.json)。当远程版本高于本地版本时，Framora 标题栏会显示“更新”按钮；点击后打开 GitHub 的最新发布页。本仓库不保存源码，只保存面向用户可公开访问的发布信息与下载入口。
+## 第一次使用：创建账号并配置 API Key
 
-### 截图
+帧序需要使用兼容 OpenAI API 的服务来生成视频、图片和文本内容。当前默认服务地址为 `https://s.lconai.com`。
 
-![Framora 视频创建界面](assets/screenshots/framora-video-create.png)
+1. 打开 API 服务商控制台，例如智创聚合 `https://s.lconai.com`。
+2. 注册或登录账号。
+3. 在控制台中创建或复制你的 API Key。
+4. 启动帧序。首次启动且未配置 API Key 时，应用会自动打开设置窗口。
+5. 进入“API”页签，填写 API Key。
+6. 代理地址保持默认 `https://s.lconai.com`，除非你的服务商提供了其他地址。
+7. 保存配置后返回主界面。
 
-### 版本清单
+API Key 会加密保存在本机，不会写入浏览器 localStorage。请不要把 API Key 发送给他人，也不要上传到公开仓库、截图或日志中。
 
-```json
-{
-  "version": "0.0.2",
-  "releaseUrl": "https://github.com/yanquankun/framora-releases/releases/tag/v0.0.2",
-  "latestUrl": "https://github.com/yanquankun/framora-releases/releases/latest"
-}
-```
+## 页面与功能
 
-### 后续文档占位
+### 视频创建
 
-后续可以继续在这里补充：
+视频创建页用于快速生成 AI 视频。
 
-- 安装说明
-- 功能介绍
-- 常见问题
-- 隐私与本地数据说明
-- 版本变更记录
+- 输入视频提示词，描述角色、场景、动作、镜头、风格和结尾。
+- 上传参考图片，让静态画面生成动态视频。
+- 选择模型、创作起点和画幅，例如竖屏 `720x1280`。
+- 使用“创意工作台”整理热点、链接、素材说明和三段分镜。
+- 生成任务会显示在左侧视频列表中，可查看状态、预览视频、展开详情和下载结果。
+- 生成完成后，视频和缩略图会保存到本机数据目录。
 
-<details>
-<summary>English</summary>
+### 创意工作台
+
+创意工作台适合在正式生成前整理想法。
+
+- “灵感联动”：记录热点、参考账号、外部链接或素材说明。
+- “分镜实验”：把想法拆成钩子、推进、反转等段落。
+- “发布联动”：整理可用于发布的标题、简介和素材说明。
+- “模型对比”：根据可用模型和价格辅助选择实验方向。
+
+### 视频编辑
+
+视频编辑页用于把生成结果、本地视频、图片、音频和贴纸组合成作品。
+
+- 导入本地素材，应用会优先原地引用文件，不强制复制原文件。
+- 在画布中调整素材位置、尺寸和层级。
+- 在时间轴中裁剪、移动、排列视频和音频片段。
+- 支持贴纸、图片、音频和多轨道组合。
+- 导出由桌面端本地 ffmpeg 完成，导出文件保存到设置中的下载目录。
+- 如果原文件被移动或删除，相关素材会显示“已删除”遮罩，避免误以为空白。
+
+### AI 工作流
+
+AI 工作流页用于把复杂创作流程做成节点画布。
+
+- 使用文本、分镜、生图、生视频、合成、发布等节点组织流程。
+- 可以从模板开始，也可以手动搭建节点。
+- 节点之间通过连线传递文本、图片、视频或结构化结果。
+- 运行时会显示每个节点的状态、进度和错误信息。
+- 生成的图片与视频会归档到当前工作流目录。
+- 工作流可以后台运行，切换页面后再回到工作流继续查看进度。
+
+### 图片编辑
+
+图片编辑页用于处理图片生成与图片改写。
+
+- 上传一张或多张图片到无限画布。
+- 支持局部重绘、一键消除、整图改写、背景替换、抠图、高清放大、老照片修复、多图融合、风格迁移和文生图。
+- 可以框选局部区域作为 mask，也可以选择多张图片作为参考。
+- 每次生成结果都会作为新图层保留，方便对比和继续迭代。
+- 支持单张下载和批量下载。
+- 可配置 OpenAI 格式的自定义图片模型。
+
+### 设置
+
+设置窗口从标题栏右侧齿轮按钮打开。
+
+- “常规”：查看版本、平台、运行模式并切换界面语言。
+- “API”：配置 API Key 和代理地址。
+- “模型”：查看当前服务商可用模型、能力、价格和同步状态。
+- “主题”：切换浅色、深色、小黄鸭、简笔画风以及多套风格主题。
+- “存储”：查看和迁移数据目录，设置统一下载目录。
+- “缓存”：查看各类文件占用，按分类或全部清理缓存。
+
+### 使用记录
+
+标题栏的费用/使用记录入口可以查看服务商返回的账单与调用记录。未配置 API Key 或 API Key 无效时，会提示你返回设置页修正配置。
+
+### 网站公告
+
+标题栏通知按钮用于查看应用公告、使用提示、模型价格或服务状态说明。
+
+### 本地数据与隐私
+
+- API Key、主题、语言和数据目录配置加密保存在本机。
+- 生成的视频、图片、工作流产物和编辑素材保存在本地数据目录。
+- 用户上传的本地素材默认采用原地引用，不会因为导入就复制整份文件。
+- 清理缓存只删除文件资源，不会删除 API Key 和核心配置。
 
 ## English
 
-Framora is a desktop video creation app focused on AI video generation, browser-based editing, workflow orchestration, image editing, and local media management.
+Framora is a desktop AI video creation app for creators, AI video experiments, and content teams. It helps you move from prompt planning to AI video generation, local editing, image editing, and workflow orchestration.
 
-### Product Scope
+## Downloads
 
-- AI video generation: create videos from text prompts and optional reference images, with task status feedback.
-- In-browser editing: use a timeline, canvas, and export flow for basic video editing.
-- Creative workflows: organize inspiration, storyboards, local media, and publishing steps through workflow nodes.
-- Desktop-first storage: distributed through Electron, with generated media, assets, and settings stored locally.
+Open [GitHub Releases](https://github.com/yanquankun/framora-releases/releases/latest) and choose the installer that matches your device:
 
-### Downloads And Updates
+| Platform | Device | Download |
+| --- | --- | --- |
+| Windows | Windows 10/11 PCs | Windows x64 package |
+| macOS Apple Silicon | M1 / M2 / M3 / M4 Macs | macOS Apple Silicon package |
+| macOS Intel | Intel-based Macs | macOS Intel package |
 
-Latest release page: [GitHub Releases](https://github.com/yanquankun/framora-releases/releases/latest)
+## First Run: Account And API Key
 
-The app checks the public [`latest.json`](latest.json) file in this repository. When the remote version is newer than the local app version, Framora shows an "Update" button in the title bar. Clicking the button opens the latest GitHub release page. This repository does not contain source code; it only hosts public release metadata and download entry points.
+Framora uses an OpenAI-compatible API service for video, image, and text generation. The default service endpoint is `https://s.lconai.com`.
 
-### Screenshot
+1. Open your API provider console, for example `https://s.lconai.com`.
+2. Create an account or sign in.
+3. Create or copy your API Key.
+4. Launch Framora. If no API Key is configured, the Settings window opens automatically.
+5. Open the API tab and paste your API Key.
+6. Keep the default base URL `https://s.lconai.com` unless your provider gives you another endpoint.
+7. Save and return to the main window.
 
-![Framora video creation screen](assets/screenshots/framora-video-create.png)
+Your API Key is encrypted and stored locally. Do not share it in public repositories, screenshots, logs, or chat messages.
 
-### Release Manifest
+## Pages And Features
 
-```json
-{
-  "version": "0.0.2",
-  "releaseUrl": "https://github.com/yanquankun/framora-releases/releases/tag/v0.0.2",
-  "latestUrl": "https://github.com/yanquankun/framora-releases/releases/latest"
-}
-```
+### Video Creation
 
-### Future Documentation
+- Generate videos from prompts and optional reference images.
+- Select model, starting mode, and output size such as vertical `720x1280`.
+- Use the creative workspace to organize inspiration, links, notes, and three-part storyboards.
+- Track generated videos in the left task list, preview results, open details, and download files.
 
-This README can later be expanded with:
+### Creative Workspace
 
-- Installation guide
-- Feature overview
-- FAQ
-- Privacy and local data notes
-- Changelog
+- Collect trend notes, references, links, and material descriptions.
+- Split ideas into hook, development, and reversal scenes.
+- Prepare publishing copy and compare model choices.
 
-</details>
+### Video Editor
+
+- Import local media, arrange clips on the canvas and timeline, and combine video, audio, images, and stickers.
+- Export locally through desktop ffmpeg.
+- Missing local files are marked clearly instead of silently rendering blank content.
+
+### AI Workflow
+
+- Build node-based pipelines for text, storyboards, images, videos, composition, and publishing.
+- Run nodes with visible progress and error states.
+- Generated assets are archived into the workflow folder.
+- Workflows can keep running while you switch pages.
+
+### Image Editor
+
+- Upload one or more images to an infinite canvas.
+- Use inpainting, cleanup, full-image rewrite, background replacement, cutout, upscaling, photo restoration, image fusion, style transfer, and text-to-image.
+- Keep each result as a new layer for comparison and iteration.
+- Download single images or batches.
+
+### Settings
+
+- General: version, platform, mode, and language.
+- API: API Key and base URL.
+- Models: available models, capabilities, prices, and sync status.
+- Theme: switch visual themes.
+- Storage: data directory and download directory.
+- Cache: review storage usage and clear cached files.
+
+### Usage Records
+
+Use the title-bar usage entry to check billing and API usage records. If the API Key is missing or invalid, Framora will guide you back to Settings.
+
+### Announcements
+
+Use the notification button in the title bar to read app announcements, model notes, pricing tips, or service messages.
+
+### Local Data And Privacy
+
+- Settings and API credentials are encrypted and stored locally.
+- Generated media, workflow outputs, and editor assets are stored in the local data directory.
+- Imported local files are referenced in place when possible.
+- Clearing cache removes generated file resources but keeps API credentials and core settings.

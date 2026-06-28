@@ -1,19 +1,19 @@
 {
   "name": "Framora",
   "channel": "stable",
-  "version": "0.0.2",
-  "releasedAt": "2026-06-28T04:12:30.000Z",
+  "version": "0.0.1",
+  "releasedAt": "2026-06-28T07:32:59.000Z",
   "minimumSupportedVersion": "0.0.1",
-  "releaseUrl": "https://github.com/yanquankun/framora-releases/releases/tag/v0.0.2",
+  "releaseUrl": "https://github.com/yanquankun/framora-releases/releases/latest",
   "latestUrl": "https://github.com/yanquankun/framora-releases/releases/latest",
   "notes": {
     "zh": [
-      "初始化 Framora 公开下载页。",
-      "后续版本会在发布页分别提供 Windows、macOS Apple Silicon 和 macOS Intel 安装包。"
+      "当前暂无公开安装包版本。",
+      "正式发布时会在发布页分别提供 Windows、macOS Apple Silicon 和 macOS Intel 安装包。"
     ],
     "en": [
-      "Initialize the public Framora download page.",
-      "Future releases will provide separate installers for Windows, macOS Apple Silicon, and macOS Intel."
+      "No public installer release is available yet.",
+      "The official release page will provide separate installers for Windows, macOS Apple Silicon, and macOS Intel."
     ]
   }
 }

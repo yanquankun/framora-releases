@@ -8,12 +8,12 @@
   "latestUrl": "https://github.com/yanquankun/framora-releases/releases/latest",
   "notes": {
     "zh": [
-      "初始化公开发布仓库，用于验证应用内更新提示。",
-      "本版本用于测试标题栏“更新”按钮逻辑，暂不包含 App 内自动下载。"
+      "初始化 Framora 公开下载页。",
+      "后续版本会在发布页分别提供 Windows、macOS Apple Silicon 和 macOS Intel 安装包。"
     ],
     "en": [
-      "Initialize the public release repository for validating in-app update prompts.",
-      "This release is for testing the title-bar Update button flow and does not include in-app auto download."
+      "Initialize the public Framora download page.",
+      "Future releases will provide separate installers for Windows, macOS Apple Silicon, and macOS Intel."
     ]
   }
 }

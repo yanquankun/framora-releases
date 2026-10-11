@@ -129,6 +129,8 @@ Manage local prompt-enhancement packs following the Claude Skill spec. Ships wit
 
 Expose Framora's capabilities (video generation, asset queries, workflows, publishing) as a local MCP server for AI tools such as Claude or Cursor. Fine-grained permission groups (read / generate / file / publish) with a built-in self-check. Disabled by default.
 
+![MCP settings](assets/screenshots/framora-settings-mcp.png)
+
 ### Theme
 
 Light, dark, duck, sketch, and several stylized themes, plus follow-system. Theme changes sync to the main window instantly.
@@ -155,11 +157,19 @@ Per-category disk usage (generated videos, editor assets, workflow outputs, imag
 
 The home page generates AI videos fast:
 
-- Describe characters, scenes, motion, camera work, and style in the prompt; optionally attach reference images for image-to-video;
+- Describe characters, scenes, motion, camera work, and style in the prompt; optionally attach reference images for image-to-video. You can also **dictate with the microphone button** (built-in offline speech recognition — audio is transcribed locally and never uploaded);
 - Pick a model and aspect ratio (e.g. vertical `720x1280`); the model list and prices come live from your provider;
 - Built-in **prompt checker** (subject / motion / camera / style / structure) and **prompt assistant** (rewrite, expand, compress, to-storyboard, to-English, stronger hook);
 - The creative workspace turns trends, links, and notes into a three-beat storyboard;
 - Tasks appear in the left list with progress, preview, details, and downloads; finished videos and thumbnails are saved locally.
+
+Three advanced ways to create on top of that:
+
+- **Storyboard mode** (Sora-family models): split one video into multiple shots, describe each shot and assign its duration, validate the total length, and generate a complete multi-shot video in one go. You can also run the assistant's "to-storyboard" first and import the result as shot cards;
+- **Remix** (Sora-family models): describe what you want to change about a finished video (new scene, new subject, different style…) and generate a new version based on the original; remixed tasks carry a Remix badge showing their source;
+- **Continue the next scene**: one click extracts the last frame of a video as the reference image, reuses the original parameters, and continues the story with a matching scene and style — chain multiple segments into a longer narrative.
+
+> Storyboard mode and Remix require Sora-family models; their entries only appear when your provider's current model list includes them.
 
 ### AI Workflow
 
@@ -181,8 +191,10 @@ Cut generated results and local footage into a finished piece:
 ![Video editor](assets/screenshots/framora-video-editor.png)
 
 - Import local video / audio / image assets; files are **referenced in place**, never copied;
-- Arrange position, size, and z-order on the canvas; hundreds of stickers included;
-- Multi-track timeline with trimming, splitting, drag-arrange, volume control, and waveforms;
+- Canvas supports 16:9 / 9:16 / 1:1 / 4:3 aspect ratios; arrange position, size, and z-order freely, with hundreds of stickers included;
+- Multi-track timeline with trimming, splitting, drag-arrange, volume control, and waveforms; video clips render as a **frame-by-frame filmstrip** for precise positioning;
+- Select a text clip and click **AI voice-over** to read it with a text-to-speech model — the generated audio drops straight onto the audio track;
+- **Color filters** for images and videos (brightness, contrast, saturation, hue, plus presets like dusk, film, and mono), **text effects** (stroke, shadow, neon glow) and **gradient fills** for text, and right-click translation between Chinese and English;
 - Speech-to-subtitle with visual subtitle editing;
 - Export runs on local ffmpeg (hardware encoding preferred) straight into your download directory — nothing goes through a server;
 - Moved or deleted source files show a clear "missing" badge instead of failing silently.
@@ -195,15 +207,15 @@ An infinite-canvas AI image workbench:
 
 - Upload one or more images and pan/zoom freely;
 - Capabilities include **inpainting, cleanup, text replacement, full-image rewrite, background replacement, smart cutout, upscaling, photo restoration, multi-image fusion, style transfer, and text-to-image**;
-- Draw a selection box as the inpainting mask, or check multiple images as fusion/style references;
-- Every result becomes a new layer for comparison and iteration, with single or batch download;
+- Draw a selection box as the inpainting mask, or check multiple images as fusion/style references; extra instructions support voice input;
+- Every result becomes a new layer for comparison and iteration, with single or batch download; in-progress generations can be cancelled individually, and failed sizes in a batch can be retried independently;
 - Custom OpenAI-format image models supported (independent endpoint and key);
 - Session history is saved automatically so you can pick up where you left off.
 
 ### Usage and Announcements
 
 - The **billing button** in the title bar shows billing and API usage returned by your provider (fetched live, never stored);
-- The **notification button** shows app announcements, usage tips, and service status notes.
+- The **notification button** shows app announcements, usage tips, and service status notes; the announcement window includes a "Usage Guide" button that opens this document in the language matching your interface.
 
 ---
 
@@ -233,6 +245,7 @@ Framora is built **local-first**. Our commitments:
 - API keys and settings are encrypted with **AES-256-GCM**; the master key is protected by OS-level security (macOS Keychain / Windows DPAPI), so copied config files cannot be decrypted elsewhere;
 - Generated videos, images, workflow outputs, and editor assets stay in the local data directory, which you can inspect and migrate in Settings → Storage;
 - Imported local files are **referenced in place**, not copied;
+- Voice input and subtitle recognition run on the **bundled offline speech models**, entirely on your machine — recordings are never uploaded;
 - Clearing cache removes file resources only and never touches your key or core settings.
 
 ### Network access scope

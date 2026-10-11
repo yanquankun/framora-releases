@@ -203,7 +203,7 @@ xattr -cr /Applications/Framora.app
 
 多图无限画布式的 AI 图片工作台：
 
-![图片编辑](assets/screenshots/framora-image-editor.png)
+![图片编辑](assets/screenshots/framora-picture-edit.png)
 
 - 上传一张或多张图片，自由缩放平移画布；
 - 支持**局部重绘、一键消除、文字替换、整图改写、背景替换、智能抠图、高清放大、老照片修复、多图融合、风格迁移、文字生图**等能力；

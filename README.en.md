@@ -203,7 +203,7 @@ Cut generated results and local footage into a finished piece:
 
 An infinite-canvas AI image workbench:
 
-![Image editor](assets/screenshots/framora-image-editor.png)
+![Image editor](assets/screenshots/framora-picture-edit.png)
 
 - Upload one or more images and pan/zoom freely;
 - Capabilities include **inpainting, cleanup, text replacement, full-image rewrite, background replacement, smart cutout, upscaling, photo restoration, multi-image fusion, style transfer, and text-to-image**;
